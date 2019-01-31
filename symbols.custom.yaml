@@ -70,7 +70,5 @@
     "~": "～"
 
   # 將特殊字符當作普通標點，定製之...
-    "/wz": ["site:zhihu.com", "site:daily.zhihu.com", "site:tieba.baidu.com", "site:bttiantang.com", "site:pan.baidu.com", "site:80s.cn", "site:youku.com", "site:zh.wikipedia.org"]
-    "/zz": ["→_→", "←_←", "O(∩_∩)O", "╮(╯▽╰)╭", "(￣ε ￣) ", "O__O", "(^_^)", "(╰_╯)", "ψ(￣︶￣)ψ", "-_-||", "(╯‵□′)╯︵┻━┻", "◔‸◔", "= =囧~~", "•﹏•", "(｡✿‿✿｡)", "(｡◕‿<｡)"]
-    "/flower": ["🎉"]
-    "/smile": ["🎊"]
+    "/wz": ["site:zhihu.com", "site:daily.zhihu.com", "site:github.com", "site:tieba.baidu.com", "site:pan.baidu.com", "site:zh.wikipedia.org"]
+    "/zz": ["→_→", "←_←"]
