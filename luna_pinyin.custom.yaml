@@ -118,32 +118,34 @@
   #'translator/preedit_format':
   #  - "xform/([nljqxyzcs])v/$1ü/"
 
-  # Author's key Error...
-    - derive/h([aeu])/$1h/             # sehn  => shen      eh => he
-    - derive/^([csz])h/h$1/            # hsi   => shi       hs => sh
-    - derive/^([bm])a$/a$1/            # ab   => ba
+  # refine regexp  2019/08/10
+    # start
+    - derive/^([csze])h/h$1/                 # hs => sh
+    - derive/^h([eua])/$1h/                  # eh => he
 
-    - derive/^([aeutx]?[h])i$/i$1/     # ia    => ai        ia => ai   ,   iah => hai
-    - derive/([a])n$/n$1/              # huna  => huan      na => an
-    - derive/([u])([a])/$2$1/          # gaui  => guai      au => ua
-    - derive/^([lm])e$/e$1/            # el    => le        el => le
-    - derive/^([wfb])en$/$1ne/         # wne   => wen       ne => en
-    - derive/^ba([n])/ab$1/            # abn   => ban       ab => ba
-    - derive/^([gz])([o])/$2$1/        # gong  => ogng   ozu => zou  ,   og => go   oz => zo
-    - derive/([n])g$/g$1/              # ng    => gn        ng => gn
+    - derive/^([lb])a/a$1/                   # abn => ban  |  alng => lang    ab => ba , al => la
+    - derive/^([tx])([io])/$2$1/             # itng => ting       it => ti
+    - derive/^([gz])([o])/$2$1/              # gong => ogng |  ozu => zou      og => go   oz => zo
 
-    - derive/^([bhzwktcfg])([ae])i/$1i$2/   # hia   => hai ,  wie => wei   ia => ai , ie => ei
-    - derive/^([jx])i([ae])/$1$2i/     # jai   => jia  ,  jei => jie   ei => ie , ai => ia
-    - derive/^([zr])en/$1ne/           # zne  => zen        ne => en
-    - derive/^([jyx])ue$/$1eu/         # jeu  => jue        eu => ue
-    - derive/^([tx])([io])/$2$1/       # itng => ting       it => ti
-    - derive/^zu([io])/uz$1/           # zui  => uzi        uz => zu
+    - derive/^([szc])h([aeu])/$1$2h/         # sehn => shen      zehng => zheng
 
-    - derive/([aeiou])ng$/n$1g/        # dagn  => dang
-    - derive/h([aeiou])ng$/$1hng/      # zehng => zheng
+    # end
+    - derive/([aeiou])ng$/n$1g/              # dagn  => dang      agn => ang
+    - derive/(?!^)([ae])n$/n$1/              # huna  => huan      fne => fen
 
-  # 专属打错字...
+    # complete
+    - derive/^([lm])([ea])$/$2$1/            # el => le  el => le  ab   => ba  am => ma
 
+    - derive/^([bhzwktcfg])([ae])i$/$1i$2/   # hia   => hai
+    - derive/^([jx])i([ae])$/$1$2i/          # jai   => jia
+    - derive/^([h])([aeu])i$/i$2$1/          # iah   => hai
+
+    - derive/^([zrwfb])en$/e$1n/             # ern  => ren        er => re
+    - derive/^([xz])([u])([neio])$/$2$1$3/   # uxn => xun         ux => xu
+    - derive/^([xjy])([u])([en])$/$1$3$2/    # jeu  => jue        eu => ue
+
+    # ...
+    - derive/([u])([a])/$2$1/                # gaui  => guai      au => ua
 
   # 新版 emoji，上面舊版爲 0.9.30 通過dict引入的，現在的時 opencc
   # 只能放到最下面，不然其下面的配置不在生效
